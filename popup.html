@@ -12,17 +12,30 @@
 
 	<div class="container">
 
-		<input type="text" id="autocomplete" placeholder="Type a feature, like text-shadow, border image, etc">
-
+		<input type="text" id="autocomplete" placeholder="Type a feature, like text-shadow, border image, etc" autofocus="autofocus">
+			
 		<div id="featureSupport">
 			<h1 id="title"></h1>
+			<a id="moreInfo" href="#" target="_blank" style="display: none;">More info on caniuse.com</a>
 			<div id="browserSupport"></div>
 		</div>
+		
+		<div id="references">
 
+			<h2>References: </h2>
 
-	</div>
+			<ul id="references">
+				<li class="y">Supported</li>
+				<li class="a">Partial support</li>
+				<li class="n">No support</li>
+				<li class="u">Unknown</li>
+			</ul>
+		
+		</div>
+		
+	</div>			
 
-	<small>Thank you http://caniuse.com!
+	<p>Powered by <a href="http://caniuse.com" target="_blank">caniuse.com</a> - <a href="https://github.com/marcelomazza/caniuse-chrome-extension" target="_blank">Source code</a> on Github</p>
 		
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.24.custom.min.js"></script>

@@ -1,6 +1,6 @@
 {
   "name": "Can I Use?",
-  "version": "0.3",
+  "version": "0.4",
   "manifest_version": 2,
   "description": "Can I Use? - Support tables for HTML5, CSS3, etc",
   "browser_action": {

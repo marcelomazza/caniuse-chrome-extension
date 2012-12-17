@@ -26,15 +26,14 @@ var searchFeature = function(searchTerm) {
         });
 
         var list = $('<ul/>', {
-          'class': 'my-new-list',
           html: items.join('')
         });
 
-        list.appendTo('#browserSupport', document);      
+        list.appendTo('#browserSupport', document);
+
+        $('#moreInfo').attr('href', 'http://caniuse.com/#feat=' + feature).fadeIn();
 
       });
-
-      console.log(items);
 
     };
 
@@ -58,17 +57,15 @@ $.getJSON('features.json', function(data) {
 
   $('#autocomplete').autocomplete({
     source: items,
-    minLength: 2,
+    delay: 0,
+    minLength: 0,
+    autoFocus: true,
     select: function(e, ui) {
       searchFeature(ui.item.value);
     }
   });
 
 });
-
-
-
-
 
 
 var _gaq = _gaq || [];
