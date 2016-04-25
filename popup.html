@@ -15,11 +15,11 @@
     <input type="text" id="autocomplete" placeholder="Type a feature, like text-shadow, border image, etc" autofocus="autofocus">
 
     <div id="featureSupport" class="cf">
-      <a id="moreInfo" class="more-info" href="#" target="_blank" style="display: none;">More info on caniuse.com</a>
-      <div id="browserSupport" class="browser-support cf" style="display:none;"></div>
+      <a id="moreInfo" class="more-info js-toggle" href="#" target="_blank" style="display: none;">More info on caniuse.com</a>
+      <div id="browserSupport" class="browser-support cf js-toggle"></div>
     </div>
 
-    <ul id="references" class="references cf" style="display:none;">
+    <ul id="references" class="references cf js-toggle" style="display:none;">
       <li class="y">Supported</li>
       <li class="a">Partial support</li>
       <li class="n">No support</li>
@@ -29,7 +29,7 @@
   </div>
 
 
-  <p id="resources" style="display:none;"><a href="http://marinad.com.ar/free-flat-browser-logotypes/" target="_blank">Flat browser logos</a> by Marina D.</p>
+  <p id="resources" class="js-toggle" style="display:none;"><a href="http://marinad.com.ar/free-flat-browser-logotypes/" target="_blank">Flat browser logos</a> by Marina D.</p>
   <p>Powered by <a href="http://caniuse.com" target="_blank">caniuse.com</a> - <a href="https://github.com/marcelomazza/caniuse-chrome-extension" target="_blank">Source code</a> on Github</p>
 
   <script type="text/javascript" src="js/jquery.min.js"></script>

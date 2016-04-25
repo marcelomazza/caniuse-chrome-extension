@@ -1,110 +1,100 @@
-$.getJSON('features.json', function(data) {
+var canIUse = (function () {
 
-  featuresJSON = data;
+  var my = {};
 
-  var items = [];
+  var features,
+    featureTitles = {},
+    browserList = [],
+    disabledBrowsers = {
+      "and_chr": true,
+      "and_ff": true,
+      "opera": true,
+      "op_mob": true,
+      "ie_mob": true,
+      "and_uc": true
+    },
+    mostUsedPercentage = 0.4;
 
-  $.each(featuresJSON.data, function(feature, supportInfo) {
-
-    items.push(supportInfo.title);
-
+  $.getJSON('features.json', function(data) {
+    features = data;
+    autocomplete(features.data);
   });
 
-  $('#features', document).html(items.join(''));
+  function autocomplete(data) {
 
-  var moreUsedBrowsers = getMoreUsedBrowsers();
+    $('#autocomplete').autocomplete({
+      source: $.map(data, function(value, key) {
+        return {
+          label: value.title,
+          value: key
+        }
+      }),
+      delay: 0,
+      minLength: 0,
+      autoFocus: true,
+      select: function(e, ui) {
+        e.preventDefault();
+        $('#autocomplete').val(ui.item.label);
+        listBrowsers(ui.item.value);
+      }
+    });
+  };
 
-  $('#autocomplete').autocomplete({
-    source: items,
-    delay: 0,
-    minLength: 0,
-    autoFocus: true,
-    select: function(e, ui) {
-      searchFeature(ui.item.value, moreUsedBrowsers);
-    }
-  });
+  function listBrowsers(feature) {
 
-});
+    var featureInfo = features.data[feature];
 
-var getMoreUsedBrowsers = function() {
+    $('#browserSupport').empty();
+    $('.js-toggle').hide();
 
-  var browsers = {};
+    $.each(featureInfo.stats, function(browser, versions) {
 
-  for (var browser in featuresJSON.agents) {
-
-    browsers[browser] = [];
-
-    for (var version in featuresJSON.agents[browser].usage_global) {
-
-      var usage = featuresJSON.agents[browser].usage_global[version];
-
-      if (usage > 0.5) {
-
-        browsers[browser].push(version);
-
+      if (disabledBrowsers[browser]) {
+        return;
       }
 
-    }
+      browserList.push('<li class="browser ' + browser + '">' + browser + '</li>');
 
-  }
+      listVersions(browser, versions);
 
-  return browsers;
-
-};
-
-var searchFeature = function(searchTerm, moreUsedBrowsers) {
-
-  $('#browserSupport').empty();
-  $('#browserSupport, #references, #moreInfo, #resources').hide();
-
-  $.each(featuresJSON.data, function(feature, supportInfo) {
-
-    if (searchTerm === supportInfo.title) {
-
-      $.each(supportInfo.stats, function(browser, versions) {
-
-        var items = [];
-
-        if (browser === "and_chr" || browser === "and_ff") {
-          return false;
-        }
-
-        items.push('<li class="browser ' + browser + '">' + browser + '</li>');
-
-        $.each(versions, function(version, support) {
-
-          for (var i = moreUsedBrowsers[browser].length - 1; i >= 0; i--) {
-
-            if (version === moreUsedBrowsers[browser][i]) {
-
-              items.push('<li class="' + support + '">' + version + '</li>');
-
-            }
-
-          };
-
-
-        });
-
-        var list = $('<ul/>', {
-          class: 'browser-list',
-          html: items.join('')
-        });
-
-        list.appendTo('#browserSupport', document);
-
-        $('#moreInfo').attr('href', 'http://caniuse.com/#feat=' + feature).text('"' + supportInfo.title + '" on caniuse.com');
-        $('#moreInfo, #browserSupport, #references, #resources').fadeIn();
-
+      var list = $('<ul/>', {
+        class: 'browser-list',
+        html: browserList.join('')
       });
 
-    };
+      list.appendTo('#browserSupport', document);
 
-  });
+      browserList = [];
 
-}
+      $('#moreInfo').attr('href', 'http://caniuse.com/#feat=' + feature).text('"' + featureInfo.title + '" on caniuse.com');
+      $('.js-toggle').fadeIn();
 
+    });
 
+  };
+
+  function listVersions(browser, versions) {
+
+    var isMostUsed, support;
+
+    for (var version in versions) {
+      isMostUsed = features.agents[browser].usage_global[version] > mostUsedPercentage;
+      support = versions[version];
+
+      if (isMostUsed) {
+        browserList.push('<li class="' + support + '">' + version + '</li>');
+      }
+    }
+
+  };
+
+  my.features = function() {
+    return features;
+  };
+
+  return my;
+
+})();
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-35317319-1']);
