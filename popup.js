@@ -1,7 +1,7 @@
 $.getJSON('features.json', function(data) {
 
   featuresJSON = data;
-  
+
   var items = [];
 
   $.each(featuresJSON.data, function(feature, supportInfo) {
@@ -78,7 +78,7 @@ var searchFeature = function(searchTerm, moreUsedBrowsers) {
             if (version === moreUsedBrowsers[browser][i]) {
 
               items.push('<li class="' + support + '">' + version + '</li>');
-              
+
             }
 
           };
