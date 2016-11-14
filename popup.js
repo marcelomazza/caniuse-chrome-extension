@@ -53,7 +53,7 @@ var canIUse = (function () {
         return;
       }
 
-      browserList.push('<li class="browser-icon ' + browser + '">' + browser + '</li>');
+      browserList.push('<li class="browser-icon ' + browser + '" title="' + browser + '">' + browser + '</li>');
 
       listVersions(browser, versions);
 

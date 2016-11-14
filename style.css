@@ -81,9 +81,10 @@ input {
   height: 32px;
   padding: 0;
   margin-bottom: .5em;
-  background-repeat: no-repeat;
   box-shadow: none;
   text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
 }
 
 /* Classes codes from features.json */
@@ -92,16 +93,16 @@ input {
 .a {background: #25BE25;}
 .u {background: gray;}
 
-.ie     {background: url(img/32-ie.png);}
-.edge     {background: url(img/32-ie.png);}
-.firefox  {background: url(img/32-firefox.png);}
-.chrome   {background: url(img/32-chrome.png);}
+.ie,
+.edge     {background-image: url(img/ie.svg);}
+.firefox  {background-image: url(img/firefox.svg);}
+.chrome   {background-image: url(img/chrome.svg);}
 .safari,
-.ios_saf  {background: url(img/32-safari.png);}
+.ios_saf  {background-image: url(img/safari.svg);}
 .opera,
 .op_mini,
-.op_mob   {background: url(img/32-opera.png);}
-.android  {background: url(img/32-android.png);}
+.op_mob   {background-image: url(img/opera.svg);}
+.android  {background-image: url(img/Android_robot.svg);}
 
 .ios_saf:after,
 .op_mini:after,
