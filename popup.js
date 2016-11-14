@@ -8,10 +8,12 @@ var canIUse = (function () {
     disabledBrowsers = {
       "and_chr": true,
       "and_ff": true,
+      "and_uc": true,
       "opera": true,
       "op_mob": true,
       "ie_mob": true,
-      "and_uc": true
+      "bb": true,
+      "samsung": true,
     },
     mostUsedPercentage = 0.4;
 
