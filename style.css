@@ -55,6 +55,15 @@ input {
   -webkit-box-sizing: border-box;
 }
 
+.ui-autocomplete.ui-menu .ui-menu-item {
+  border-top-color: #EEE;
+}
+
+.ui-autocomplete.ui-menu .ui-menu-item a.ui-state-hover {
+  color: #303633;
+  background: #8BE8CB;
+}
+
 .browser-support {
   margin-top: 1em;
   padding: 0 0.5em;
