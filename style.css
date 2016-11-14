@@ -26,8 +26,17 @@
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 16px;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Ubuntu,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 14px;
 }
 
 .container {
@@ -47,9 +56,9 @@ body {
     outline: 0;
   }
 
-  p {
-    font-size: 0.85em;
-  }
+p {
+  font-size: 0.85em;
+}
 
 
 .browser-support {
@@ -116,7 +125,6 @@ body {
       .op_mob:after {content: "Mobile";}
 
 .references {
-  float: left;
   margin: 1em 0.5em 0 0;
   padding: 0;
   list-style: none;
@@ -139,4 +147,29 @@ body {
   font-size: .8em;
   line-height: 2em;
   text-align: right;
+}
+
+.about-icon {
+  max-width: 16px;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.about {
+  position: relative;
+  margin-top: 0.25em;
+  padding: 0.25em 1em;
+  background: #EEE;
+}
+
+.about:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 3px;
+  display: block;
+  width: 0;
+  border-bottom: 5px solid #EEE;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
 }

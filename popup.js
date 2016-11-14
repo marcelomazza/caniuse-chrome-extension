@@ -96,6 +96,10 @@ var canIUse = (function () {
 
 })();
 
+$('#aboutIcon').on('click', function() {
+  $('#about').slideToggle();
+});
+
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-35317319-1']);
 _gaq.push(['_trackPageview']);
