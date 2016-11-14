@@ -46,83 +46,76 @@ body {
   -webkit-box-sizing: border-box;
 }
 
-  input, select {
-    width: 100%;
-    padding: .7em .5em .5em;
-    border: 1px solid #CCC;
-    font: 16px/1 "helvetica neue", helvetica, arial, sans-serif;
-    text-decoration: none;
-    -webkit-box-sizing: border-box;
-    outline: 0;
-  }
-
-p {
-  font-size: 0.85em;
+input {
+  width: 100%;
+  padding: .7em .5em .5em;
+  border: 1px solid #CCC;
+  font-size: 16px;
+  outline: 0;
+  -webkit-box-sizing: border-box;
 }
-
 
 .browser-support {
-  padding: 0em 0.5em;
+  margin-top: 1em;
+  padding: 0 0.5em;
 }
 
-  .browser-list {
-    float: left;
-    margin: 0 0.5em 0 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-    text-align: center;
-  }
+.browser-list {
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+}
 
-    .browser-list li {
-      width: 2em;
-      padding: 0.5em 0;
-      margin-bottom: 1px;
-      color:#FFF;
-    }
+.browser-list li {
+  width: 2em;
+  padding: 0.5em 0;
+  margin-bottom: 1px;
+  color:#FFF;
+}
 
-    .y, .x {background: green; }
-    .n, .p {background: red;}
-    .a {background: #25BE25;}
-    .u {background: gray;}
+.browser-list .browser-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-bottom: .5em;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  text-indent: -9999px;
+}
 
-    .browser-list .browser {
-      width: 32px;
-      height: 32px;
-      padding: 0;
-      margin-bottom: .5em;
-      background-repeat: no-repeat;
-      box-shadow: none;
-      text-indent: -9999px;
-    }
+/* Classes codes from features.json */
+.y, .x {background: green; }
+.n, .p {background: red;}
+.a {background: #25BE25;}
+.u {background: gray;}
 
-      .ie     {background: url(img/32-ie.png);}
-      .firefox  {background: url(img/32-firefox.png);}
-      .chrome   {background: url(img/32-chrome.png);}
-      .safari,
-      .ios_saf  {background: url(img/32-safari.png);}
-      .opera,
-      .op_mini,
-      .op_mob   {background: url(img/32-opera.png);}
-      .android  {background: url(img/32-android.png);}
+.ie     {background: url(img/32-ie.png);}
+.edge     {background: url(img/32-ie.png);}
+.firefox  {background: url(img/32-firefox.png);}
+.chrome   {background: url(img/32-chrome.png);}
+.safari,
+.ios_saf  {background: url(img/32-safari.png);}
+.opera,
+.op_mini,
+.op_mob   {background: url(img/32-opera.png);}
+.android  {background: url(img/32-android.png);}
 
-      .and_chr,
-      .and_ff,
-      .bb     {display: none;}
+.ios_saf:after,
+.op_mini:after,
+.op_mob:after {
+  display: block;
+  font-size: 0.75em;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.25);
+  text-indent: initial;
+}
 
-      .ios_saf:after,
-      .op_mini:after,
-      .op_mob:after {
-        display: block;
-        font-size: 0.75em;
-        color: #FFF;
-        background: rgba(0, 0, 0, 0.25);
-        text-indent: initial;
-      }
-
-      .ios_saf:after  {content: "iOS";}
-      .op_mini:after  {content: "Mini";}
-      .op_mob:after {content: "Mobile";}
+.ios_saf:after  {content: "iOS";}
+.op_mini:after  {content: "Mini";}
+.op_mob:after {content: "Mobile";}
 
 .references {
   margin: 1em 0.5em 0 0;
@@ -132,21 +125,37 @@ p {
   text-align: center;
 }
 
-  .references li {
-    width: auto;
-    float: left;
-    margin-right: .5em;
-    padding: .3em .5em;
-    font-size: .75em;
-    color:#FFF;
-  }
+.references li {
+  width: auto;
+  float: left;
+  margin-right: .5em;
+  padding: .3em .5em;
+  font-size: .75em;
+  color:#FFF;
+}
 
 .more-info {
-  display: block;
-  margin-bottom: 1em;
+  position: relative;
+  float: right;
+  width: 25%;
+  margin-top: 1em;
+  padding: 0.5em;
   font-size: .8em;
-  line-height: 2em;
-  text-align: right;
+  line-height: 1.2em;
+  background: #EEE;
+  text-decoration: none;
+}
+
+.more-info:hover {
+  background: #CCC;
+}
+
+.more-info:after {
+  content: "»";
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  margin-top: -0.5em;
 }
 
 .about-icon {
