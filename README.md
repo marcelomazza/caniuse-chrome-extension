@@ -5,6 +5,11 @@ caniuse.com unofficial chrome extension
 
 [Download "Can I Use?"](https://chrome.google.com/webstore/detail/can-i-use/kinefpelfmogilfkmjlbfkamgmofmedf) from the Chrome Web Store
 
+Version 0.6
+===========
+- Retina icon in manifest
+- Cleanup design
+- Updated data from caniuse.com
 
 Version 0.5
 ===========
